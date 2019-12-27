@@ -1,0 +1,46 @@
+{
+    "name": "WO mock services",
+    "version": "1.0",
+    "description": "WO mock services",
+    "permissions": [
+        "webRequest",
+        "webRequestBlocking",
+        "declarativeContent",
+        "storage",
+        "https://register.tymedigital.net/*",
+        "https://register.testtymebank.com/*",
+        "https://register.tymedigital.co.za/*",
+        "http://localhost:3000/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://register.tymedigital.net/*",
+                "https://register.testtymebank.com/*",
+                "https://register.tymedigital.co.za/*",
+                "http://localhost:3000/*"
+            ],
+            "js": ["./src/content/contentScript.js"]
+        }
+    ],
+    "background": {
+        "scripts": ["./src/bg/setup.js"],
+        "persistent": true
+    },
+    "page_action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "images/icon_16.png",
+            "32": "images/icon_32.png",
+            "48": "images/icon_48.png",
+            "128": "images/icon_128.png"
+        }
+    },
+    "icons": {
+        "16": "images/icon_16.png",
+        "32": "images/icon_32.png",
+        "48": "images/icon_48.png",
+        "128": "images/icon_128.png"
+    },
+    "manifest_version": 2
+}
